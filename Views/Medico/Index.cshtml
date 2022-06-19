@@ -1,0 +1,82 @@
+@model IEnumerable<Turnos.Models.Medico>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Médicos</title>
+</head>
+<body>
+
+<p>
+    <a asp-action="Create" class="btn-floating btn-large green darken-1"><i class="material-icons">person_add</i></a>
+</p>
+<table class="responsive-table highlight z-depth-3 blue lighten-5">
+    <thead class="blue darken-1 white-text">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MedicoEspecialidad[0].Especialidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HorarioAtencionDesde)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HorarioAtencionHasta)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MedicoEspecialidad[0].Especialidad.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HorarioAtencionDesde)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HorarioAtencionHasta)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdMedico"><i class="material-icons">edit</i></a> |
+                <a asp-action="Details" asp-route-id="@item.IdMedico"><i class="material-icons grey-text">more_vert</i></a> |
+                <a asp-action="Delete" asp-route-id="@item.IdMedico"><i class="material-icons red-text">delete</i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>

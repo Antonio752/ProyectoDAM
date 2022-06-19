@@ -1,0 +1,54 @@
+@model Turnos.Models.Medico
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />    
+    <link rel="stylesheet" href="~/css/site.css" />    
+    <link type="text/css" rel="stylesheet" href="~/css/materialize.min.css"  media="screen,projection"/>
+    <script type="text/javascript" src="~/js/materialize.min.js"></script>   
+    <title>Borrar Médicos</title>
+</head>>
+<body>
+<h4>¿Seguro desea eliminar el siguiente médico?</h4>
+<div>
+    <h5>Médico</h5>
+    <hr />
+    <div class="row">
+        <div class="col s12 m6">
+            <div class="card hoverable blue darken-1">
+                <div class="card-content white-text">
+                <span class="card-title"><h5><b>@Html.DisplayFor(model => model.Nombre), @Html.DisplayFor(model => model.Apellido)</b></h5></span>                    
+                    <dt>
+                        <h6>@Html.DisplayNameFor(model => model.Direccion): @Html.DisplayFor(model => model.Direccion) </h6>
+                    </dt> 
+                    <hr/>                   
+                    <dt >
+                        <h6>@Html.DisplayNameFor(model => model.Telefono): @Html.DisplayFor(model => model.Telefono)</h6>
+                    </dt>
+                    <hr/>                    
+                    <dt >
+                        <h6>@Html.DisplayNameFor(model => model.Email): @Html.DisplayFor(model => model.Email)</h6>
+                    </dt>
+                    <hr/>                  
+                    <dt >
+                        <h6>@Html.DisplayNameFor(model => model.HorarioAtencionDesde): @Html.DisplayFor(model => model.HorarioAtencionDesde)</h6>
+                    </dt>  
+                    <hr/>                 
+                    <dt class="white-text">
+                        <h6>@Html.DisplayNameFor(model => model.HorarioAtencionHasta): @Html.DisplayFor(model => model.HorarioAtencionHasta)</h6>
+                    </dt>                    
+                </div>
+                <div class="card-action blue-grey darken-2">
+                    <form asp-action="Delete">
+                        <input type="hidden" asp-for="IdMedico" />
+                        <input type="submit" value="ELIMINAR" class="waves-effect waves-light btn-small orange lighten-2" />
+                        <a asp-action="Index" class="right">Volver</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>       
+</div>
+</body>
+</html>

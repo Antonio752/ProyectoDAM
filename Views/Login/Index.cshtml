@@ -1,0 +1,51 @@
+@model Turnos.Models.Login
+
+@{    
+    Layout = null;    
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />    
+    <link rel="stylesheet" href="~/css/site.css" />    
+    <link type="text/css" rel="stylesheet" href="~/css/materialize.min.css"  media="screen,projection"/>
+    <script type="text/javascript" src="~/js/materialize.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <h4>Login</h4>
+    <hr />
+    <br/>
+    <form class="col s12" asp-action="Login">    
+        <div asp-validation-summary="ModelOnly"></div>
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">person_pin</i>
+                <input asp-for="Usuario" type="text">
+                <label asp-for="Usuario"></label>   
+                <span asp-validation-for="Usuario" ></span>            
+            </div>            
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">vpn_key</i>
+                <input asp-for="Password" type="password">
+                <label asp-for="Password"></label>   
+                <span asp-validation-for="Password" ></span>         
+            </div>            
+        </div>
+        <span class="red-text">@ViewBag.errorLogin</span>
+        <br/><br/>
+        <div class="row">
+            <div class="col s6 m6">
+                <button class="btn waves-effect waves-light cyan accent-4" type="submit" name="action">Ingresar
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>            
+        </div>
+    </form>
+</body>
+</html>

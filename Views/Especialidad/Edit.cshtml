@@ -1,0 +1,41 @@
+@model Turnos.Models.Especialidad
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Editar Especialidades</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />    
+    <link rel="stylesheet" href="~/css/site.css" />    
+    <link type="text/css" rel="stylesheet" href="~/css/materialize.min.css"  media="screen,projection"/>
+    <script type="text/javascript" src="~/js/materialize.min.js"></script>
+</head>
+<body>
+<h4>Especialidad</h4>
+<hr />
+<br/>
+<div>
+    <form class="col s12" asp-action="Edit">
+        <div asp-validation-summary="ModelOnly"></div>
+        <input type="hidden" asp-for="IdEspecialidad"/>
+        <div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">subject</i>
+                <input asp-for="Descripcion" type="text" class="validate">
+                <label asp-for="Descripcion"></label>
+                <span asp-validation-for="Descripcion" ></span>
+            </div>            
+        </div>
+        <div class="row">
+            <div class="col s6 m6">
+                <button class="btn waves-effect waves-light cyan accent-4" type="submit" name="action">Grabar
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+            <div class="col s6 m6">
+                <a class="waves-effect waves-light btn grey darken-4" asp-action="Index"><i class="material-icons left">undo</i>Volver</a>                    
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+@model IEnumerable<Turnos.Models.Especialidad>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Especialidades</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />    
+    <link rel="stylesheet" href="~/css/site.css" />    
+    <link type="text/css" rel="stylesheet" href="~/css/materialize.min.css"  media="screen,projection"/>
+    <script type="text/javascript" src="~/js/materialize.min.js"></script>
+</head>
+<body>
+<p>
+    <a asp-action="Create" class="btn-floating btn-large green darken-1"><i class="material-icons">person_add</i></a>
+</p>
+<table class="responsive-table highlight z-depth-3 orange lighten-5">
+    <thead class="orange darken-1 white-text">    
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th style="width: 80px;"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @*Aqui colocaremos, mas adelante, el codigo para mostrar los registros de la base de datos*@
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td> 
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdEspecialidad"><i class="material-icons">edit</i></a> 
+                <a asp-action="Delete" asp-route-id="@item.IdEspecialidad"><i class="material-icons red-text">delete</i></a>
+            </td>                                     
+        </tr>
+        }                
+    </tbody>
+</table>
+</body>
+</html>
